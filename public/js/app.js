@@ -77,12 +77,26 @@ $(document).ready(function() {
      $('#btn-save').on('click', function(){
         phonesArray = [];
         _phone = {};
-        if(inputName.val() == '' ){
-            alert("Es necesario poner un nombre.")
+        regex = /^[A-Za-zÁÉÍÓÚáéíóúñÑ *]+$/s;
+        regexPhone = /^[\d{10}]/;
+        if(inputName.val() == '' || inputLastame.val() == '' || inputEmail.val() == '' || inputPhone.val() == '' || inputGroup.val() == null){
+            alert("Los campos no pueden ir vacios.");
+            return;
+        }
+        if(!regex.test(inputName.val())){
+            alert('El nombre continen caracteres no permitidos');
+            return;
+        }
+        if(!regex.test(inputLastame.val())){
+            alert('El apellido continen caracteres no permitidos');
             return;
         }
         if(inputPhone.val().replace(' ','').length < 10){
-            alert("El número de teléfono no tiene 10 caracteres")
+            alert("El número de teléfono no tiene 10 caracteres");
+            return;
+        }
+        if(!regexPhone.test(inputLastame.val())){
+            alert('El teléfono continen caracteres no permitidos');
             return;
         }
         if(inputPhone.val().replace(' ','').length >= 10){
@@ -96,7 +110,7 @@ $(document).ready(function() {
                 }
             });
         }
-        alert(inputGroup.val());
+        
         data = {
                     "name": inputName.val(),
                     "second_name": inputLastame.val(),
@@ -106,7 +120,6 @@ $(document).ready(function() {
                 };
 
         $.ajax(settingsAjax('addUser',data,'POST')).done(function (response) {
-            console.log(response);
             updateList();
         });
     });
@@ -115,9 +128,7 @@ $(document).ready(function() {
         $.ajax(settingsAjax('getUsersId/'+id,{},'GET')).done(function (response) {
             $.ajax(settingsAjax('getPhoneUsersId/'+id,{},'GET')).done(function (response){
                 var p = '';
-                console.log(jQuery.parseJSON(response).length);
                 $.each(jQuery.parseJSON(response), function( index, value ) {
-                    console.log(index);
                     if(index == jQuery.parseJSON(response).length - 1){
                         p += value.number
                     }else{
@@ -145,12 +156,26 @@ $(document).ready(function() {
     $('#btn-update').on('click', function(){
         phonesArray = [];
         _phone = {};
-        if(inputName.val() == '' ){
-            alert("Es necesario poner un nombre.")
+        regex = /^[A-Za-zÁÉÍÓÚáéíóúñÑ *]+$/s;
+        regexPhone = /^[\d{10}]/;
+        if(inputName.val() == '' || inputLastame.val() == '' || inputEmail.val() == '' || inputPhone.val() == '' || inputGroup.val() == null){
+            alert("Los campos no pueden ir vacios.");
+            return;
+        }
+        if(!regex.test(inputName.val())){
+            alert('El nombre continen caracteres no permitidos');
+            return;
+        }
+        if(!regex.test(inputLastame.val())){
+            alert('El apellido continen caracteres no permitidos');
             return;
         }
         if(inputPhone.val().replace(' ','').length < 10){
-            alert("El número de teléfono no tiene 10 caracteres")
+            alert("El número de teléfono no tiene 10 caracteres");
+            return;
+        }
+        if(!regexPhone.test(inputLastame.val())){
+            alert('El teléfono continen caracteres no permitidos');
             return;
         }
         if(inputPhone.val().replace(' ','').length >= 10){
@@ -172,10 +197,7 @@ $(document).ready(function() {
                     "group": inputGroup.val(),
                     "phones": phonesArray
                 };
-        console.log(data);
-        alert(idSelected)
         $.ajax(settingsAjax('editUser/'+idSelected,data,'PUT')).done(function (response) {
-            console.log(response);
             updateList();
         });
     });

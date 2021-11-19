@@ -63,8 +63,8 @@
                         <form action="">
                         <h4>
                             Agregar Contacto 
-                            <button class="btn btn-sm btn-success float-right" title="Guardar" id="btn-save"><i class="bi bi-person-check"></i></button>
-                            <button class="btn btn-sm btn-success float-right" title="Guardar edición" id="btn-update" style="display:none;"><i class="bi bi-person-check"></i></button>
+                            <button class="btn btn-sm btn-success float-right" type="summit" title="Guardar" id="btn-save"><i class="bi bi-person-check"></i></button>
+                            <button class="btn btn-sm btn-success float-right" type="summit" title="Guardar edición" id="btn-update" style="display:none;"><i class="bi bi-person-check"></i></button>
                             <button class="btn btn-sm btn-danger float-right mr-2" title="Cancelar" id="btn-cancel"><i class="bi bi-x-circle"></i></button>
                         </h4>
                             <div class="form-group">
@@ -72,8 +72,8 @@
                                 <input id="input-name" type="text" class=" form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="input-lastname">Apellidos</label>
-                                <input id="input-lastname" type="text" class=" form-control">
+                                <label for="input-lastname">Apellidos*</label>
+                                <input id="input-lastname" type="text" class=" form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="inputPhone">Teléfono (10 digitos)*</label>
@@ -82,12 +82,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputEmail">Correo electrónico</label>
-                                <input id="input-email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                                <input id="input-email" type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" required>
                             </div>
                             <div class="form-group">
                                 <label for="inputGroup">Grupo</label>
                                 <!-- <input  type="text" class="form-control" id="inputGroup"> -->
-                                <select id="inputGroup">
+                                <select id="inputGroup" required>
                                     <option disabled selected>Selecciona una opción</option>
                                     <option value="1">Familia</option>
                                     <option value="2">Amigos</option>
