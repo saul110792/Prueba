@@ -1,0 +1,40 @@
+body{
+    background-color: #033968;
+}
+h1,h2,h3,h4,hr{
+    color: #033968;
+}
+hr{
+    border:2px solid;
+}
+.list-user:hover{
+    background-color: #033968;
+    color: #ffffff;
+    font-weight: bold;
+    transition: background 2s;
+}
+
+ul li:nth-child(even) {
+    background: #fff;
+  }
+  
+ul li:nth-child(odd) {
+    background: #ccc;
+}
+
+select {
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid #ced4da;
+    padding: 0.375rem 0.75rem;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    border-radius: 5px;
+}
+select::-ms-expand {
+    /* display: none; */
+  }
